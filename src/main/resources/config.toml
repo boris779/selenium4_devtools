@@ -1,0 +1,51 @@
+
+
+[logging]
+structured-logs = false
+log-file ='/home/boris/repos/selenium4_devtools/gridlog.log'
+log-encoding = 'UTF-8'
+
+
+[node]
+# Autodetect which drivers are available on the current system, and add them to the Node.
+# Type: boolean
+# Default: true
+# Example: 
+detect-drivers = true
+
+# Drivers that should be checked. If specified, will skip autoconfiguration. Example: -I "firefox" -I "chrome"
+# Type: list of strings
+# Default: []
+# Example: 
+#driver-implementation = ["firefox", "chrome"]
+heartbeat-period = 60
+session-timeout = 300
+
+
+# List of configured drivers a Node supports. It is recommended to provide this type of configuration through a toml config file to improve readability. Command line example: --drivers-configuration display-name="Firefox Nightly" max-sessions=2 webdriver-path="/usr/local/bin/geckodriver" stereotype='{"browserName": "firefox", "browserVersion": "86", "moz:firefoxOptions": {"binary":"/Applications/Firefox Nightly.app/Contents/MacOS/firefox-bin"}}'
+# Type: list of strings
+# Example: 
+[[node.driver-configuration]]
+display-name = "Firefox"
+webdriver-executable = "/home/boris/.cache/selenium/geckodriver/linux64/0.30.0/geckodriver"
+max-sessions = 2
+stereotype = "{\"browserName\": \"firefox\", \"browserVersion\": \"86\"}"
+
+
+
+[[node.driver-configuration]]
+display-name = "chrome"
+webdriver-executable = "/home/boris/.cache/selenium/chromedriver/linux64/97.0.4692.71/chromedriver"
+max-sessions = 2
+stereotype = "{\"browserName\": \"chrome\", \"browserVersion\": \"97\"}"
+
+
+
+
+# Mapping of fully qualified class name to a browser configuration that this matches against. --driver-factory org.openqa.selenium.example.LynxDriverFactory '{"browserName": "lynx"}'
+# Type: list of strings
+# Example: 
+#driver-factories = ["org.openqa.selenium.example.LynxDriverFactory '{"browserName": "lynx"}']
+
+
+
