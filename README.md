@@ -2,4 +2,5 @@
 
 started with the following commands:
 
-docker-compose up
+from the resources directory:
+`docker-compose up`
