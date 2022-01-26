@@ -25,7 +25,7 @@ public class Main {
       ChromeOptions options = new ChromeOptions(); //.merge(caps);
       //options.setBrowserVersion("96.0");
 
-      WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.128:4444"), options);
+      WebDriver driver = new RemoteWebDriver(new URL("http://10.1.0.111:4444/wd/hub"), options);
 
       driver = new Augmenter().augment(driver);
 
