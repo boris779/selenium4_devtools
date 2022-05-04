@@ -19,20 +19,16 @@ import java.util.Optional;
 public class Main {
 
    public static void main(String[] args) throws MalformedURLException {
-
       //DesiredCapabilities caps = new DesiredCapabilities();
       //caps.setPlatform(Platform.LINUX);
       ChromeOptions options = new ChromeOptions(); //.merge(caps);
       //options.setBrowserVersion("96.0");
-
       WebDriver driver = new RemoteWebDriver(new URL("http://10.1.0.111:4444/wd/hub"), options);
 
       driver = new Augmenter().augment(driver);
-
       driver.get("https://www.duckduckgo.com");
       DevTools devTools = ((HasDevTools) driver).getDevTools();
       devTools.createSession();
-
       devTools.send(Log.enable());
       devTools.send(Browser.setWindowBounds(new WindowID(1),
                                             new Bounds(Optional.of(80),
@@ -40,8 +36,7 @@ public class Main {
                                                        Optional.of(80),
                                                        Optional.of(80),
                                                        Optional.of(WindowState.NORMAL))));
-
       driver.quit();
-
    }
+
 }
